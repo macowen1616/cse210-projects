@@ -12,8 +12,8 @@ class Program
 
         Console.WriteLine(math1.GetMathInfo());
 
-
-        Writing writing1 = new Writing();
-        writing1.SetTitle("Gone with the Wind");
+        Writing writing1 = new Writing("Smith", "English", "Gone with the Wind");
+        Console.WriteLine(writing1.GetWritingInfo());
     }
 }
+
