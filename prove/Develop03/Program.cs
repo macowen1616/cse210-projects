@@ -24,3 +24,5 @@ class Program
         Console.WriteLine("All words are hidden. Good job!");
     }
 }
+
+//Added closing line to show that the program is complete.
