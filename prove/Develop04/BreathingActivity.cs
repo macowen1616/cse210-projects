@@ -9,7 +9,7 @@ public class BreathingActivity : Activity
     {
         DisplayStartingMessage();
         int duration = GetDuration();
-        int cycleTime = 6; // 3 seconds in, 3 seconds out
+        int cycleTime = 6; 
         int elapsed = 0;
 
         while (elapsed < duration)
