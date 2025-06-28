@@ -1,11 +1,14 @@
 using System;
-using System.Collections.Generic;
 
 public class ListGoals
 {
     public void PerformActivity()
     {
-        Console.WriteLine("Listing your goals... (this is a placeholder)");
-        // Later: Loop through your saved goals and display them
+        Console.WriteLine($"\nYou have {GoalManager.TotalPoints} points.");
+        for (int i = 0; i < GoalManager.Goals.Count; i++)
+        {
+            Console.WriteLine($"{i + 1}. {GoalManager.Goals[i].GetDetailsString()}");
+        }
     }
 }
+
