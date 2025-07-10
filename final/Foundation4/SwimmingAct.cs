@@ -2,7 +2,7 @@ using System;
 
 public class SwimmingAct : Activity
 {
-    private double speed; 
+    private int laps; 
 
     public SwimmingAct()
     {
@@ -17,33 +17,37 @@ public class SwimmingAct : Activity
         Console.Write("Enter the duration in minutes: ");
         durationMinutes = int.Parse(Console.ReadLine());
 
-        Console.Write("Enter your average speed in mph: ");
-        speed = double.Parse(Console.ReadLine());
+        Console.Write("Enter the number of laps swum (each lap is 50m): ");
+        laps = int.Parse(Console.ReadLine());
 
         Console.WriteLine(GetSummary());
     }
 
     public override double GetDistance()
     {
-        return speed * (durationMinutes / 60.0);
+        
+        return laps * 50 / 1000.0 * 0.62;
     }
 
     public override double GetSpeed()
     {
-        return speed;
+        
+        return (GetDistance() / durationMinutes) * 60.0;
     }
 
     public override double GetPace()
     {
-        return 60.0 / speed;
+        
+        return durationMinutes / GetDistance();
     }
 
     public override string GetSummary()
     {
-        return $"{date:dd MMM yyyy} Biking ({durationMinutes} min)- " +
+        return $"{date:dd MMM yyyy} Swimming ({durationMinutes} min)- " +
                $"Distance {GetDistance():0.0} miles, " +
                $"Speed {GetSpeed():0.0} mph, " +
                $"Pace: {GetPace():0.0} min per mile";
     }
 }
+
 
