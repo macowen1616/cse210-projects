@@ -2,14 +2,23 @@ using System;
 
 public class SwimmingAct : Activity
 {
-    private double speed;
+    private double speed; 
+
+    public SwimmingAct()
+    {
+        
+    }
 
     public override void PerformActivity()
     {
-        // Hardcoded or could ask user for input
-        date = new DateTime(2022, 11, 3);
-        durationMinutes = 30;
-        speed = 6.0;
+        Console.Write("Enter the date (yyyy-mm-dd): ");
+        date = DateTime.Parse(Console.ReadLine());
+
+        Console.Write("Enter the duration in minutes: ");
+        durationMinutes = int.Parse(Console.ReadLine());
+
+        Console.Write("Enter your average speed in mph: ");
+        speed = double.Parse(Console.ReadLine());
 
         Console.WriteLine(GetSummary());
     }
@@ -31,9 +40,10 @@ public class SwimmingAct : Activity
 
     public override string GetSummary()
     {
-        return $"{date:dd MMM yyyy} Swimming ({durationMinutes} min)- " +
+        return $"{date:dd MMM yyyy} Biking ({durationMinutes} min)- " +
                $"Distance {GetDistance():0.0} miles, " +
                $"Speed {GetSpeed():0.0} mph, " +
                $"Pace: {GetPace():0.0} min per mile";
     }
 }
+

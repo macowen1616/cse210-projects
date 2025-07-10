@@ -2,14 +2,23 @@ using System;
 
 public class BikingAct : Activity
 {
-    private double speed;
+    private double speed; 
+
+    public BikingAct()
+    {
+        
+    }
 
     public override void PerformActivity()
     {
-        // Hardcoded or could ask user for input
-        date = new DateTime(2022, 11, 3);
-        durationMinutes = 30;
-        speed = 6.0;
+        Console.Write("Enter the date (yyyy-mm-dd): ");
+        date = DateTime.Parse(Console.ReadLine());
+
+        Console.Write("Enter the duration in minutes: ");
+        durationMinutes = int.Parse(Console.ReadLine());
+
+        Console.Write("Enter your average speed in mph: ");
+        speed = double.Parse(Console.ReadLine());
 
         Console.WriteLine(GetSummary());
     }
@@ -37,3 +46,4 @@ public class BikingAct : Activity
                $"Pace: {GetPace():0.0} min per mile";
     }
 }
+
