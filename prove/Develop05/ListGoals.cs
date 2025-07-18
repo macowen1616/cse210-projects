@@ -4,11 +4,12 @@ public class ListGoals
 {
     public void PerformActivity()
     {
-        Console.WriteLine($"\nYou have {GoalManager.TotalPoints} points.");
-        for (int i = 0; i < GoalManager.Goals.Count; i++)
+        Console.WriteLine("\nCurrent Goals:");
+        int index = 1;
+        foreach (Goal g in GoalManager.goals)
         {
-            Console.WriteLine($"{i + 1}. {GoalManager.Goals[i].GetDetailsString()}");
+            Console.WriteLine($"{index}. {g.GetStatus()}");
+            index++;
         }
     }
 }
-

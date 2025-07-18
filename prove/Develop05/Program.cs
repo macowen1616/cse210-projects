@@ -17,40 +17,34 @@ class Program
             Console.WriteLine("6. Quit");
             Console.Write("Select a choice from the menu: ");
             choice = int.Parse(Console.ReadLine());
-if (choice == 1)
-{
-    CreateGoals Create = new CreateGoals();
-    Create.PerformActivity();
-}
-else if (choice == 2)
-{
-    ListGoals listG = new ListGoals();
-    listG.PerformActivity();
-}
-else if (choice == 3)
-{
-    SaveGoals save = new SaveGoals();
-    save.PerformActivity();
-}
-else if (choice == 4)
-{
-    LoadGoals load = new LoadGoals();
-    load.PerformActivity();
-}
-else if (choice == 5)
-{
-    RecordEvent record = new RecordEvent();
-    record.PerformActivity();
-}
 
-
+            if (choice == 1)
+            {
+                new CreateGoals().PerformActivity();
+            }
+            else if (choice == 2)
+            {
+                new ListGoals().PerformActivity();
+            }
+            else if (choice == 3)
+            {
+                new SaveGoals().PerformActivity();
+            }
+            else if (choice == 4)
+            {
+                new LoadGoals().PerformActivity();
+            }
+            else if (choice == 5)
+            {
+                new RecordEvent().PerformActivity();
+            }
             else if (choice == 6)
             {
                 Console.WriteLine("Goodbye!");
             }
             else
             {
-                Console.WriteLine("Invalid choice. Please select 1-4.");
+                Console.WriteLine("Invalid choice.");
             }
         }
     }

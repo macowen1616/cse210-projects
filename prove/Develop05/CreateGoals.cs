@@ -4,28 +4,25 @@ public class CreateGoals
 {
     public void PerformActivity()
     {
-        Console.WriteLine("Types: 1. Simple 2. Eternal 3. Checklist");
-        Console.Write("Select type: ");
-        string type = Console.ReadLine();
+        Console.WriteLine("Enter goal type:");
+        Console.WriteLine("1. Negative Goal");
+        Console.Write("Choice: ");
+        string choice = Console.ReadLine();
 
-        Console.Write("Name: ");
+        Console.Write("Enter goal name: ");
         string name = Console.ReadLine();
-        Console.Write("Description: ");
-        string desc = Console.ReadLine();
-        Console.Write("Points: ");
-        int pts = int.Parse(Console.ReadLine());
 
-        if (type == "1")
-            GoalManager.Goals.Add(new SimpleGoal(name, desc, pts));
-        else if (type == "2")
-            GoalManager.Goals.Add(new EternalGoal(name, desc, pts));
-        else if (type == "3")
+        Console.Write("Enter goal description: ");
+        string desc = Console.ReadLine();
+
+        Console.Write("Enter point value: ");
+        int points = int.Parse(Console.ReadLine());
+
+        if (choice == "1")
         {
-            Console.Write("Bonus points: ");
-            int bonus = int.Parse(Console.ReadLine());
-            Console.Write("Target count: ");
-            int target = int.Parse(Console.ReadLine());
-            GoalManager.Goals.Add(new ChecklistGoal(name, desc, pts, bonus, 0, target));
+            GoalManager.goals.Add(new NegativeGoal(name, desc, points));
+            Console.WriteLine("Negative goal created!");
         }
+        // You can add more goal types here later
     }
 }
