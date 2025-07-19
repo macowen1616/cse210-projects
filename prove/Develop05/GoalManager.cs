@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 
-public static class GoalManager
+static class GoalManager
 {
-    public static List<Goal> goals = new List<Goal>();
+    public static List<Goal> Goals { get; set; } = new List<Goal>();
+    public static int Score { get; set; } = 0;
 }

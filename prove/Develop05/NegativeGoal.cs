@@ -1,26 +1,23 @@
-public class NegativeGoal : Goal
+class NegativeGoal : Goal
 {
-    public bool IsCompleted { get; private set; }
+    private int _times;
 
-    public NegativeGoal(string name, string description, int points)
-        : base(name, description, points)
+    public NegativeGoal(string name, string desc, int points, int times = 0)
+        : base(name, desc, points)
     {
-        IsCompleted = false;
+        _times = times;
     }
 
-    public override void RecordEvent()
+    public override int RecordEvent()
     {
-        Console.WriteLine($"You triggered a negative goal: '{Name}'. You lost {Points} points!");
-        IsCompleted = true;
+        _times++;
+        return -Points;
     }
 
-    public override string GetStringRepresentation()
-    {
-        return $"NegativeGoal:{Name},{Description},{Points},{IsCompleted}";
-    }
+    public override bool IsComplete() => false;
 
-    public override string GetStatus()
-    {
-        return $"[{"X",1}] {Name} ({Description}) - Lose {Points} pts";
-    }
+    public override string GetStatus() => $"[!] {Name} -- Occurred {_times} times";
+
+    public override string Serialize() =>
+        $"NegativeGoal|{Name}|{Description}|{Points}|{_times}";
 }

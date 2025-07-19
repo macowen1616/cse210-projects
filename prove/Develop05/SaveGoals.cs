@@ -1,17 +1,26 @@
+using System;
 using System.IO;
 
-public class SaveGoals
+class SaveGoals
 {
     public void PerformActivity()
     {
-        using (StreamWriter writer = new StreamWriter("goals.txt"))
-        {
-            foreach (Goal g in GoalManager.goals)
-            {
-                writer.WriteLine(g.GetStringRepresentation());
-            }
-        }
+        Console.Write("Filename to save: ");
+        string file = Console.ReadLine();
 
-        Console.WriteLine("Goals saved to goals.txt!");
+        try
+        {
+            using (StreamWriter writer = new StreamWriter(file))
+            {
+                writer.WriteLine(GoalManager.Score);
+                foreach (Goal g in GoalManager.Goals)
+                    writer.WriteLine(g.Serialize());
+            }
+            Console.WriteLine("Goals saved.");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error saving goals: {ex.Message}");
+        }
     }
 }

@@ -16,7 +16,11 @@ class Program
             Console.WriteLine("5. Record Event");
             Console.WriteLine("6. Quit");
             Console.Write("Select a choice from the menu: ");
-            choice = int.Parse(Console.ReadLine());
+            if (!int.TryParse(Console.ReadLine(), out choice))
+            {
+                Console.WriteLine("Invalid input. Please enter a number.");
+                continue;
+            }
 
             if (choice == 1)
             {
@@ -24,7 +28,7 @@ class Program
             }
             else if (choice == 2)
             {
-                new ListGoals().PerformActivity();
+                new List().PerformActivity();
             }
             else if (choice == 3)
             {
@@ -49,3 +53,5 @@ class Program
         }
     }
 }
+
+

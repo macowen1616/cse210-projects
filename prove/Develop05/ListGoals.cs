@@ -1,15 +1,13 @@
 using System;
 
-public class ListGoals
+class List
 {
     public void PerformActivity()
     {
-        Console.WriteLine("\nCurrent Goals:");
-        int index = 1;
-        foreach (Goal g in GoalManager.goals)
+        Console.WriteLine($"\nYour Score: {GoalManager.Score}");
+        for (int i = 0; i < GoalManager.Goals.Count; i++)
         {
-            Console.WriteLine($"{index}. {g.GetStatus()}");
-            index++;
+            Console.WriteLine($"{i + 1}. {GoalManager.Goals[i].GetStatus()}");
         }
     }
 }

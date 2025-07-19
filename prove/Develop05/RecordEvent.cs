@@ -1,24 +1,25 @@
 using System;
 
-public class RecordEvent
+class RecordEvent
 {
     public void PerformActivity()
     {
-        Console.WriteLine("Choose a goal to record:");
-        for (int i = 0; i < GoalManager.goals.Count; i++)
+        if (GoalManager.Goals.Count == 0)
         {
-            Console.WriteLine($"{i + 1}. {GoalManager.goals[i].Name}");
+            Console.WriteLine("No goals available to record.");
+            return;
         }
 
-        int index = int.Parse(Console.ReadLine()) - 1;
+        new List().PerformActivity();
+        Console.Write("Which goal did you accomplish (or fail)? ");
+        if (!int.TryParse(Console.ReadLine(), out int index) || index < 1 || index > GoalManager.Goals.Count)
+        {
+            Console.WriteLine("Invalid goal selection.");
+            return;
+        }
 
-        if (index >= 0 && index < GoalManager.goals.Count)
-        {
-            GoalManager.goals[index].RecordEvent();
-        }
-        else
-        {
-            Console.WriteLine("Invalid choice.");
-        }
+        int earned = GoalManager.Goals[index - 1].RecordEvent();
+        GoalManager.Score += earned;
+        Console.WriteLine($"Points {(earned >= 0 ? "gained" : "lost")}: {earned}. Total Score: {GoalManager.Score}");
     }
 }
