@@ -1,9 +1,27 @@
 using System;
 
-class Program
+public class Product
 {
-    static void Main(string[] args)
+    private string name;
+    private string productId;
+    private double pricePerUnit;
+    private int quantity;
+
+    public Product(string name, string productId, double pricePerUnit, int quantity)
     {
-        Console.WriteLine("Hello Foundation2 World!");
+        this.name = name;
+        this.productId = productId;
+        this.pricePerUnit = pricePerUnit;
+        this.quantity = quantity;
+    }
+
+    public string GetName() => name;
+    public string GetProductId() => productId;
+    public double GetPricePerUnit() => pricePerUnit;
+    public int GetQuantity() => quantity;
+
+    public double GetTotalCost()
+    {
+        return pricePerUnit * quantity;
     }
 }
