@@ -1,49 +1,51 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-
-public class Order
+namespace Foundation2
 {
-    private List<Product> products;
-    private Customer customer;
-
-    public Order(Customer customer)
+    public class Order
     {
-        this.customer = customer;
-        this.products = new List<Product>();
-    }
+        private List<Product> products;
+        private Customer customer;
 
-    public void AddProduct(Product product)
-    {
-        products.Add(product);
-    }
-
-    public double GetTotalPrice()
-    {
-        double productsTotal = 0;
-        foreach (var product in products)
+        public Order(Customer customer)
         {
-            productsTotal += product.GetTotalCost();
+            this.customer = customer;
+            this.products = new List<Product>();
         }
-        double shippingCost = customer.IsInUSA() ? 5 : 35;
-        return productsTotal + shippingCost;
-    }
 
-    public string GetPackingLabel()
-    {
-        StringBuilder sb = new StringBuilder();
-        foreach (var product in products)
+        public void AddProduct(Product product)
         {
-            sb.AppendLine($"{product.GetName()} (ID: {product.GetProductId()})");
+            products.Add(product);
         }
-        return sb.ToString();
-    }
 
-    public string GetShippingLabel()
-    {
-        StringBuilder sb = new StringBuilder();
-        sb.AppendLine(customer.GetName());
-        sb.AppendLine(customer.GetAddress().ToString());
-        return sb.ToString();
+        public double GetTotalPrice()
+        {
+            double productsTotal = 0;
+            foreach (var product in products)
+            {
+                productsTotal += product.GetTotalCost();
+            }
+            double shippingCost = customer.IsInUSA() ? 5 : 35;
+            return productsTotal + shippingCost;
+        }
+
+        public string GetPackingLabel()
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (var product in products)
+            {
+                sb.AppendLine($"{product.GetName()} (ID: {product.GetProductId()})");
+            }
+            return sb.ToString();
+        }
+
+        public string GetShippingLabel()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(customer.GetName());
+            sb.AppendLine(customer.GetAddress().ToString());
+            return sb.ToString();
+        }
     }
 }

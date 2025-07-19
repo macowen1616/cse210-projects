@@ -1,32 +1,35 @@
 using System;
 
-public class Address
+namespace Foundation2
 {
-    private string street;
-    private string city;
-    private string stateOrProvince;
-    private string country;
-
-    public Address(string street, string city, string stateOrProvince, string country)
+    public class Address
     {
-        this.street = street;
-        this.city = city;
-        this.stateOrProvince = stateOrProvince;
-        this.country = country;
-    }
+        private string street;
+        private string city;
+        private string stateOrProvince;
+        private string country;
 
-    public string GetStreet() => street;
-    public string GetCity() => city;
-    public string GetStateOrProvince() => stateOrProvince;
-    public string GetCountry() => country;
+        public Address(string street, string city, string stateOrProvince, string country)
+        {
+            this.street = street;
+            this.city = city;
+            this.stateOrProvince = stateOrProvince;
+            this.country = country;
+        }
 
-    public bool IsInUSA()
-    {
-        return country.Trim().ToUpper() == "USA" || country.Trim().ToUpper() == "UNITED STATES";
-    }
+        public string GetStreet() => street;
+        public string GetCity() => city;
+        public string GetStateOrProvince() => stateOrProvince;
+        public string GetCountry() => country;
 
-    public override string ToString()
-    {
-        return $"{street}\n{city}, {stateOrProvince}\n{country}";
+        public bool IsInUSA()
+        {
+            return country.Trim().ToUpper() == "USA" || country.Trim().ToUpper() == "UNITED STATES";
+        }
+
+        public override string ToString()
+        {
+            return $"{street}\n{city}, {stateOrProvince}\n{country}";
+        }
     }
 }

@@ -1,21 +1,23 @@
 using System;
-
-public class Customer
+namespace Foundation2
 {
-    private string name;
-    private Address address;
-
-    public Customer(string name, Address address)
+    public class Customer
     {
-        this.name = name;
-        this.address = address;
-    }
+        private string name;
+        private Address address;
 
-    public string GetName() => name;
-    public Address GetAddress() => address;
+        public Customer(string name, Address address)
+        {
+            this.name = name;
+            this.address = address;
+        }
 
-    public bool IsInUSA()
-    {
-        return address.IsInUSA();
+        public string GetName() => name;
+        public Address GetAddress() => address;
+
+        public bool IsInUSA()
+        {
+            return address.IsInUSA();
+        }
     }
 }
