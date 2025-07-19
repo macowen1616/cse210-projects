@@ -21,3 +21,6 @@ class NegativeGoal : Goal
     public override string Serialize() =>
         $"NegativeGoal|{Name}|{Description}|{Points}|{_times}";
 }
+
+
+//gOOD

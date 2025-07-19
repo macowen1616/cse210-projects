@@ -23,3 +23,6 @@ class RecordEvent
         Console.WriteLine($"Points {(earned >= 0 ? "gained" : "lost")}: {earned}. Total Score: {GoalManager.Score}");
     }
 }
+
+
+//Good

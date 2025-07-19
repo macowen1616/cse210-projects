@@ -110,3 +110,6 @@ class ListGoals : Goal
     public override string Serialize() =>
         $"ListGoals|{Name}|{Description}|{Points}|{_targetCount}|{_currentCount}";
 }
+
+
+//Good
